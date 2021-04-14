@@ -4,8 +4,8 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 RUN apt-get update -qq && apt-get install -y build-essential nodejs yarn
 RUN mkdir /sample4
 WORKDIR /sample4
-COPY Gemfile /sample4/Gemfile
-COPY Gemfile.lock /sample4/Gemfile.lock
+COPY ./src/Gemfile /sample4/Gemfile
+COPY ./src/Gemfile.lock /sample4/Gemfile.lock
 RUN bundle install
 COPY ./src /sample4
 
