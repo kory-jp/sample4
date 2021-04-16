@@ -51,4 +51,6 @@ production:
   <<: *default
   database: sample4_production
   username: sample4
+  username: mysql2
   password: <%= ENV['SAMPLE4_DATABASE_PASSWORD'] %>
+
