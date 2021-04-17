@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_093713) do
+ActiveRecord::Schema.define(version: 2021_04_17_062532) do
+
+  create_table "administrators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email", null: false
+    t.string "hashed_password"
+    t.boolean "suspended", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_administrators_on_email", unique: true
+  end
 
   create_table "staff_members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
@@ -18,7 +27,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_093713) do
     t.string "given_name", null: false
     t.string "family_name_kana", null: false
     t.string "given_name_kana", null: false
-    t.string "hasded_password"
+    t.string "hashed_password"
     t.date "start_date", null: false
     t.date "end_date"
     t.boolean "suspended", default: false, null: false
